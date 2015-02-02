@@ -87,11 +87,6 @@ class PaypalController extends ControllerBase {
 
                 $this->view->setVar('message', $error);
             } else {
-                //update user information to be done payment
-                $company_auth = $this->session->get('company_auth');
-                $company_id   = $company_auth['id'];
-                $company = Company::findFirst("id='$company_id'");
-                $company->upgrade();
                 
                 //payment was completed successfully
                 $this->view->setVar('message', 'payment succeeded, congrats !!');
